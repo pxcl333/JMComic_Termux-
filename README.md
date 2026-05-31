@@ -16,6 +16,7 @@ JMComic 在 Termux 上的安装与配置指南
 bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux/main/setup.sh) && \
 wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
 echo "✅ 环境配置完成，APK 已下载到 Download 文件夹"
+```
 
 
 执行完成后：
@@ -33,6 +34,7 @@ echo "✅ 环境配置完成，APK 已下载到 Download 文件夹"
 1. 用浏览器打开 JMComic-APK Releases
 2. 下载最新版本的 .apk 文件
 3. 安装到手机
+
 
 手动安装（备选）
 
