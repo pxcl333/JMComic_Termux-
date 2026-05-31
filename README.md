@@ -19,15 +19,15 @@ For learning and providing alternative methods only. Please use responsibly.
 - Note: Do NOT install from Google Play, as older versions will cause command failures.
 
 ### 2. After first opening Termux, you must run:
-
+```
 termux-setup-storage
-
+```
 A permission popup will appear, tap "Allow".
 
 ### 3. Update packages
-
+```
 pkg update && pkg upgrade -y
-
+```
 ### 4. Configure mirror for users in China (recommended)
 
 Run the command below and select the mirror:
@@ -40,19 +40,19 @@ Steps:
 - Press Enter to confirm
 
 Then run update again:
-
+```
 pkg update
-
+```
 ## One-Click Setup
 
 Run the following commands in Termux in order:
 
 ### Step 1: Install Python dependencies
-
+```
 pkg install python -y
 pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
 mkdir -p /storage/emulated/0/Download/JMComic
-
+```
 ### Step 2: Download JMComic APK
 
 wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
