@@ -185,15 +185,7 @@ termux-setup-storage
 pkg update && pkg upgrade -y
 ```
 ### 4. 配置国内镜像源（国内用户必须做）
-
-执行以下命令，在菜单中选择镜像源：
-```
-termux-change-repo
-```
-操作步骤：
-- 选择 Mirrors in Chinese Mainland
-- 选择 https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main
-- 按回车确认
+这里自行更改
 
 然后重新更新：
 ```
