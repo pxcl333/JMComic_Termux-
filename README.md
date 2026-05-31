@@ -90,28 +90,6 @@ jm 123456
 ```
 Replace 123456 with the actual comic album ID.
 
-## Manual Installation (Alternative)
-
-If one-click setup fails, follow these steps manually:
-
-### 1. Install Python
-```
-pkg install python -y
-```
-### 2. Install jmcomic
-```
-pip install jmcomic -U
-```
-### 3. Create download directory
-```
-mkdir -p /storage/emulated/0/Download/JMComic
-```
-### 4. Download APK
-```
-wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-```
-### 5. Create shortcut command (same as Step 3 above)
-
 ## Acknowledgments
 
 This tool is based on the jmcomic open-source project. Thanks to the original author hect0x7 for development and sharing.
@@ -247,28 +225,6 @@ chmod +x $PREFIX/bin/jm
 jm 123456
 ```
 将 123456 替换为实际的漫画本子 ID。
-
-## 手动安装（备选）
-
-如果一键配置失败，可以分步手动执行：
-
-### 1. 安装 Python
-```
-pkg install python -y
-```
-### 2. 安装 jmcomic
-```
-pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-### 3. 创建下载目录
-```
-mkdir -p /storage/emulated/0/Download/JMComic
-```
-### 4. 下载 APK
-```
-wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-```
-### 5. 创建快捷命令（同上第三步）
 
 ## 致谢
 
