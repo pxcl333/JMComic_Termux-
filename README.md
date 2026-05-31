@@ -141,8 +141,8 @@ A: Possible reasons:
 - Comply with relevant laws and regulations. Respect content copyright.
 - Users assume all consequences. This project provides technical solutions only.
 
-JMComic 在 Termux 上的安装与配置指南（适用于 Android 手机/平板）
-仅用于学习和提供额外的方法，请合理使用
+## JMComic 在 Termux 上的安装与配置指南（适用于 Android 手机/平板）
+## 仅用于学习和提供额外的方法，请合理使用
 ## 适用设备
 
 - Android 手机或平板
