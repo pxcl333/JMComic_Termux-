@@ -209,7 +209,7 @@ pkg update
 ### 第一步：安装 Python 依赖
 ```
 pkg install python -y
-pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install jmcomic -U -i https://pypi.tuna.tsinghua.edu.cn/simple
 mkdir -p /storage/emulated/0/Download/JMComic
 ```
 ### 第二步：下载 JMComic APK（使用国内加速）
