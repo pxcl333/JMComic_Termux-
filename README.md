@@ -19,8 +19,8 @@ echo "✅ 完成"
 
 ## 国内镜像源配置
 bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup_mirror.sh) && \
-wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
-echo "✅ 完成"
+wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
+echo "✅ 环境配置完成，APK 已下载到 Download 文件夹"
 ```
 
 
