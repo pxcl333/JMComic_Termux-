@@ -17,7 +17,7 @@ bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/se
 wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
 echo "✅ 完成"
 
-##国内镜像源配置
+## 国内镜像源配置
 bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup_mirror.sh) && \
 wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
 echo "✅ 完成"
