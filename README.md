@@ -2,7 +2,7 @@
 
 JMComic Installation and Configuration Guide on Termux (for Android phones/tablets)
 
-For learning and providing alternative methods only. Please use responsibly.
+For learning and technical research purposes only. Please use responsibly.
 
 ## Supported Devices
 
@@ -28,21 +28,6 @@ A permission popup will appear, tap "Allow".
 ```
 pkg update && pkg upgrade -y
 ```
-### 4. Configure mirror for users in China (recommended)
-
-Run the command below and select the mirror:
-
-termux-change-repo
-
-Steps:
-- Select "Mirrors in Chinese Mainland"
-- Select "https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main"
-- Press Enter to confirm
-
-Then run update again:
-```
-pkg update
-```
 ## One-Click Setup
 
 Run the following commands in Termux in order:
@@ -50,19 +35,15 @@ Run the following commands in Termux in order:
 ### Step 1: Install Python dependencies
 ```
 pkg install python -y
-pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install jmcomic -U
 mkdir -p /storage/emulated/0/Download/JMComic
 ```
 ### Step 2: Download JMComic APK
-
-wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-
-If ghproxy.com is down, try one of these mirrors:
-- https://ghproxy.net/
-- https://mirror.ghproxy.com/
-
+```
+wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+```
 ### Step 3: Create shortcut command "jm"
-
+```
 cat > $PREFIX/bin/jm << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 DEFAULT_DIR="/storage/emulated/0/Download/JMComic"
@@ -87,7 +68,7 @@ jmcomic "$id"
 EOF
 
 chmod +x $PREFIX/bin/jm
-
+```
 ### Step 4: Install APK
 
 Open your phone's file manager, go to the Download folder, and tap 2.0.24.apk to install.
@@ -95,9 +76,9 @@ Open your phone's file manager, go to the Download folder, and tap 2.0.24.apk to
 Note: If you see "Install blocked" warning, go to Settings -> Security -> Install unknown apps -> grant permission to your file manager.
 
 ## Usage
-
+```
 jm 123456
-
+```
 Replace 123456 with the actual comic album ID.
 
 ## Manual Installation (Alternative)
@@ -105,21 +86,21 @@ Replace 123456 with the actual comic album ID.
 If one-click setup fails, follow these steps manually:
 
 ### 1. Install Python
-
+```
 pkg install python -y
-
+```
 ### 2. Install jmcomic
-
-pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
-
+```
+pip install jmcomic -U
+```
 ### 3. Create download directory
-
+```
 mkdir -p /storage/emulated/0/Download/JMComic
-
+```
 ### 4. Download APK
-
-wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-
+```
+wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+```
 ### 5. Create shortcut command (same as Step 3 above)
 
 ## Acknowledgments
@@ -135,7 +116,7 @@ A: Run pkg install python -y first to install Python.
 
 Q: wget download is slow or fails
 
-A: Network issue. Try a different mirror, or download manually with a browser:
+A: Network issue. You can try again later, or download manually with a browser:
    https://github.com/hect0x7/JMComic-APK/releases
 
 Q: termux-setup-storage already run but /storage directory not found
@@ -159,7 +140,6 @@ A: Possible reasons:
 - Use the download feature reasonably. Do not mass download resources to avoid putting pressure on target websites.
 - Comply with relevant laws and regulations. Respect content copyright.
 - Users assume all consequences. This project provides technical solutions only.
-# JMComic_Termux
 
 JMComic 在 Termux 上的安装与配置指南（适用于 Android 手机/平板）
 仅用于学习和提供额外的方法，请合理使用
