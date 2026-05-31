@@ -10,7 +10,15 @@ For learning and technical research purposes only. Please use responsibly.
 - Termux and Termux:API installed (see prerequisites below)
 
 ## Prerequisites
+## About the Download Method
 
+This tutorial uses JMComic as an example to demonstrate a general approach for downloading resources in Termux using Python dependencies + custom shortcut commands.
+
+If you need to download other types of online resources, you may consider:
+- Finding corresponding open-source download tools
+- Referring to the script structure in this tutorial to write your own shortcut commands
+
+Please evaluate the legality of the content you download. This tutorial does not encourage any form of copyright infringement.
 ### 1. Install Termux and Termux:API
 
 - Download and install from F-Droid:
