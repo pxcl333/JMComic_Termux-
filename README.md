@@ -40,7 +40,8 @@ mkdir -p /storage/emulated/0/Download/JMComic
 ```
 ### Step 2: Download JMComic APK
 ```
-wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+download path(example)
+ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
 ```
 ### Step 3: Create shortcut command "jm"
 ```
@@ -192,9 +193,9 @@ pkg install python -y
 pip install jmcomic -U -i https://pypi.tuna.tsinghua.edu.cn/simple
 mkdir -p /storage/emulated/0/Download/JMComic
 ```
-### 第二步：下载 JMComic APK（使用国内加速）
+### 第二步：下载 JMComic APK
 ```
-wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+其中的示例网址 "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
 ```
 如果 ghproxy.com 失效，可换成以下任一镜像：
 - https://ghproxy.net/
@@ -297,3 +298,4 @@ A: 可能原因：
 - 请合理使用下载功能，不要大量爬取资源，避免对目标网站造成压力。
 - 遵守相关法律法规，尊重内容版权。
 - 使用者自行承担一切后果，本项目仅提供技术方案。
+- 请勿批量下载或用于任何商业用途。
