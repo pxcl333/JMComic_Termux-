@@ -1,106 +1,152 @@
-```markdown
 # JMComic_Termux
 
-JMComic 在 Termux 上的安装与配置指南
+JMComic 在 Termux 上的安装与配置指南（适用于 Android 手机/平板）
+
+## 适用设备
+
+- Android 手机或平板
+- 已安装 Termux 和 Termux:API（见下方前置要求）
 
 ## 前置要求
 
-- 安装 **Termux**（推荐从 [F-Droid](https://f-droid.org/）下载）
-- 安装 **Termux:API**（同样从 F-Droid 下载）
-- 首次打开 Termux 后，建议先运行 `pkg update && pkg upgrade -y`
+### 1. 安装 Termux 和 Termux:API
 
-## 一键配置（推荐）
+- 从 F-Droid 应用商店下载安装：
+  - Termux
+  - Termux:API
+- 注意：不要从 Google Play 下载，版本过旧会导致命令无法执行。
 
-在 Termux 中复制并执行以下命令：
+### 2. 首次打开 Termux 后，必须先执行：
 
-bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup.sh) && \
-wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
-echo "✅ 完成"
+termux-setup-storage
 
-## 国内镜像源配置
-bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup_mirror.sh) && \
-wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
-echo "✅ 环境配置完成，APK 已下载到 Download 文件夹"
-```
+手机会弹出权限请求，点击「允许」。
 
+### 3. 更新软件包
 
-执行完成后：
+pkg update && pkg upgrade -y
 
-1. 打开手机文件管理器，进入 Download 文件夹
-2. 点击 2.0.24.apk 安装
-3. 在 Termux 中输入 jm 123456 测试下载
+### 4. 配置国内镜像源（国内用户必须做）
 
-如果提示「禁止安装未知来源应用」，请前往：手机设置 → 安全 → 安装未知应用 → 授权你的文件管理器。
+执行以下命令，在菜单中选择镜像源：
 
-手动下载 APK（备选）
+termux-change-repo
 
-如果上面的 wget 命令下载失败，可以手动下载：
+操作步骤：
+- 选择 Mirrors in Chinese Mainland
+- 选择 https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main
+- 按回车确认
 
-1. 用浏览器打开 JMComic-APK Releases
-2. 下载最新版本的 .apk 文件
-3. 安装到手机
+然后重新更新：
 
+pkg update
 
-手动安装（备选）
+## 一键配置
 
-如果一键配置失败，可以按以下步骤手动操作：
+在 Termux 中依次执行以下命令：
 
-1. 安装依赖
+### 第一步：安装 Python 依赖
 
-```bash
-pkg update -y
 pkg install python -y
 pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-2. 创建下载目录
-
-```bash
 mkdir -p /storage/emulated/0/Download/JMComic
-```
 
-3. 创建 jm 快捷命令
+### 第二步：下载 JMComic APK（使用国内加速）
 
-```bash
+wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+
+如果 ghproxy.com 失效，可换成以下任一镜像：
+- https://ghproxy.net/
+- https://mirror.ghproxy.com/
+
+### 第三步：创建快捷命令 jm
+
 cat > $PREFIX/bin/jm << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 DEFAULT_DIR="/storage/emulated/0/Download/JMComic"
-[ -n "$1" ] && { mkdir -p "$DEFAULT_DIR"; cd "$DEFAULT_DIR"; jmcomic "$1"; exit 0; }
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "用法: jm [本子号]"
+    echo "      jm 123456       # 快速下载"
+    echo "      jm              # 交互模式"
+    exit 0
+fi
+
+if [ -n "$1" ]; then
+    mkdir -p "$DEFAULT_DIR"
+    cd "$DEFAULT_DIR"
+    jmcomic "$1"
+    exit 0
+fi
+
 read -p "本子 ID: " id
 cd "$DEFAULT_DIR"
 jmcomic "$id"
 EOF
+
 chmod +x $PREFIX/bin/jm
-```
 
-4. 配置文件（可选）
+### 第四步：安装 APK
 
-如需自定义下载规则，创建 ~/.config/jmcomic/config.yml：
+打开手机文件管理器，进入 Download 文件夹，点击 2.0.24.apk 安装。
 
-```bash
-mkdir -p ~/.config/jmcomic
-cat > ~/.config/jmcomic/config.yml << 'YAML'
-dir_rule:
-  base_dir: "/storage/emulated/0/Download/JMComic"
-  rule: "Bd_{title}"
-download:
-  threading:
-    image: 30
-YAML
-```
+注意：如果提示「禁止安装未知来源应用」，请前往：手机设置 -> 安全 -> 安装未知应用 -> 授权你的文件管理器。
 
-使用方法
+## 使用方法
 
-配置完成后，在 Termux 中输入：
-
-```bash
 jm 123456
-```
 
 将 123456 替换为实际的漫画本子 ID。
 
-🙏 致谢
+## 手动安装（备选）
+
+如果一键配置失败，可以分步手动执行：
+
+### 1. 安装 Python
+
+pkg install python -y
+
+### 2. 安装 jmcomic
+
+pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+### 3. 创建下载目录
+
+mkdir -p /storage/emulated/0/Download/JMComic
+
+### 4. 下载 APK
+
+wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
+
+### 5. 创建快捷命令（同上第三步）
+
+## 致谢
 
 本工具基于 jmcomic 开源项目，感谢原作者 hect0x7 的开发与分享。
+项目地址：https://github.com/hect0x7/JMComic-APK
 
+## 常见问题
 
+Q: 执行 pip install 时提示 command not found
+
+A: 先执行 pkg install python -y 安装 Python。
+
+Q: wget 下载 APK 很慢或失败
+
+A: 网络问题，可以换一个镜像源，或者用手机浏览器手动下载：
+   https://github.com/hect0x7/JMComic-APK/releases
+
+Q: termux-setup-storage 已经执行过，但 /storage 目录不存在
+
+A: 关闭 Termux 重新打开，或重启手机后再试。
+
+Q: 输入 jm 提示找不到命令
+
+A: 检查是否已执行创建快捷命令的 cat 代码块，并确保已执行 chmod +x $PREFIX/bin/jm。
+
+Q: jm 123456 下载失败
+
+A: 可能原因：
+   - 本子 ID 不存在
+   - 网络问题，可尝试切换 Wi-Fi 或使用手机流量
+   - jmcomic 版本过旧，执行 pip install jmcomic -U 升级
