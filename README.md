@@ -111,13 +111,13 @@ pkg install python -y
 pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 ### 3. 创建下载目录
-
+```
 mkdir -p /storage/emulated/0/Download/JMComic
-
+```
 ### 4. 下载 APK
-
+```
 wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-
+```
 ### 5. 创建快捷命令（同上第三步）
 
 ## 致谢
