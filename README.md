@@ -60,7 +60,7 @@ wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMC
 - https://mirror.ghproxy.com/
 
 ### 第三步：创建快捷命令 jm
-
+```
 cat > $PREFIX/bin/jm << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 DEFAULT_DIR="/storage/emulated/0/Download/JMComic"
@@ -85,7 +85,7 @@ jmcomic "$id"
 EOF
 
 chmod +x $PREFIX/bin/jm
-
+```
 ### 第四步：安装 APK
 
 打开手机文件管理器，进入 Download 文件夹，点击 2.0.24.apk 安装。
