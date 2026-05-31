@@ -16,6 +16,11 @@ JMComic 在 Termux 上的安装与配置指南
 bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup.sh) && \
 wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
 echo "✅ 完成"
+
+##国内镜像源配置
+bash <(curl -s https://raw.githubusercontent.com/pxcl333/JMComic_Termux-/main/setup_mirror.sh) && \
+wget -P ~/storage/downloads/ "https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk" && \
+echo "✅ 完成"
 ```
 
 
