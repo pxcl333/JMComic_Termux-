@@ -17,44 +17,44 @@ JMComic 在 Termux 上的安装与配置指南（适用于 Android 手机/平板
 - 注意：不要从 Google Play 下载，版本过旧会导致命令无法执行。
 
 ### 2. 首次打开 Termux 后，必须先执行：
-
+```
 termux-setup-storage
-
+```
 手机会弹出权限请求，点击「允许」。
 
 ### 3. 更新软件包
-
+```
 pkg update && pkg upgrade -y
-
+```
 ### 4. 配置国内镜像源（国内用户必须做）
 
 执行以下命令，在菜单中选择镜像源：
-
+```
 termux-change-repo
-
+```
 操作步骤：
 - 选择 Mirrors in Chinese Mainland
 - 选择 https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main
 - 按回车确认
 
 然后重新更新：
-
+```
 pkg update
-
+```
 ## 一键配置
 
 在 Termux 中依次执行以下命令：
 
 ### 第一步：安装 Python 依赖
-
+```
 pkg install python -y
 pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
 mkdir -p /storage/emulated/0/Download/JMComic
-
+```
 ### 第二步：下载 JMComic APK（使用国内加速）
-
+```
 wget -P ~/storage/downloads/ "https://ghproxy.com/https://github.com/hect0x7/JMComic-APK/releases/download/2.0.24/2.0.24.apk"
-
+```
 如果 ghproxy.com 失效，可换成以下任一镜像：
 - https://ghproxy.net/
 - https://mirror.ghproxy.com/
@@ -93,9 +93,9 @@ chmod +x $PREFIX/bin/jm
 注意：如果提示「禁止安装未知来源应用」，请前往：手机设置 -> 安全 -> 安装未知应用 -> 授权你的文件管理器。
 
 ## 使用方法
-
+```
 jm 123456
-
+```
 将 123456 替换为实际的漫画本子 ID。
 
 ## 手动安装（备选）
@@ -103,13 +103,13 @@ jm 123456
 如果一键配置失败，可以分步手动执行：
 
 ### 1. 安装 Python
-
+```
 pkg install python -y
-
+```
 ### 2. 安装 jmcomic
-
+```
 pip install jmcomic -i https://pypi.tuna.tsinghua.edu.cn/simple
-
+```
 ### 3. 创建下载目录
 
 mkdir -p /storage/emulated/0/Download/JMComic
